@@ -63,34 +63,11 @@ describe("Given tasksReducer function", () => {
     });
   });
 
-  describe("When it receves [] as tasks and {} as action", () => {
-    test("Then it should return current tasks", () => {
-      const currentTasks = [
-        {
-          task: "comprar",
-        },
-        {
-          task: "limpiar",
-        },
-      ];
+  describe("When it doesn't receive tasks and action", () => {
+    test("Then it should return []", () => {
+      const result = tasksReducer();
 
-      const action = {
-        type: {},
-        tasks: [],
-      };
-
-      const expectedTasks = [
-        {
-          task: "comprar",
-        },
-        {
-          task: "limpiar",
-        },
-      ];
-
-      const tasksList = tasksReducer(currentTasks, action);
-
-      expect(tasksList).toEqual(expectedTasks);
+      expect(result).toHaveLength(0);
     });
   });
 });
